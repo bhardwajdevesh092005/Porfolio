@@ -55,6 +55,15 @@ const Navbar: React.FC = () => {
               {item.label}
             </a>
           ))}
+          <div style={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            padding: '1rem 0',
+            borderTop: '1px solid var(--border)',
+            marginTop: '0.5rem'
+          }}>
+            <ThemeToggle />
+          </div>
         </div>
       )}
     </nav>

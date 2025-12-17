@@ -185,6 +185,16 @@ nav {
   display: none;
   padding: 0.5rem;
   color: var(--text-primary);
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+.mobile-menu-btn:hover {
+  background: var(--surface);
+}
+
+.mobile-menu-btn:active {
+  transform: scale(0.95);
 }
 
 .mobile-nav {
@@ -193,6 +203,18 @@ nav {
   padding: 1rem 2rem;
   background: var(--background);
   border-top: 1px solid var(--border);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .mobile-nav > a {
@@ -1068,12 +1090,12 @@ footer .container {
   }
 
   .skill-items-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
   }
 
   .skill-flip-card {
-    height: 90px;
+    height: 100px;
   }
 
   .skill-flip-front,
