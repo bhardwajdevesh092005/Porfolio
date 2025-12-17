@@ -74,6 +74,7 @@ const Skills: React.FC = () => {
                         className={`skill-flip-card ${isFlipped ? 'flipped' : ''}`}
                         onMouseEnter={() => setHoveredSkill(skillKey)}
                         onMouseLeave={() => setHoveredSkill(null)}
+                        onClick={() => setHoveredSkill(isFlipped ? null : skillKey)}
                       >
                         <div className="skill-flip-inner">
                           <div className="skill-flip-front">
