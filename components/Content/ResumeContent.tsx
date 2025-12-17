@@ -10,7 +10,7 @@ const ResumeContent: React.FC = () => {
       gap: '1rem'
     }}>
       <iframe
-        src="/Resume_Dev.pdf"
+        src={`Porfolio/Resume_Dev.pdf`}
         style={{
           width: '100%',
           height: '100%',
@@ -20,7 +20,7 @@ const ResumeContent: React.FC = () => {
         title="Resume PDF"
       />
       <a 
-        href="/Resume_Dev.pdf" 
+        href={`Porfolio/Resume_Dev.pdf`} 
         download="Devesh_Bhardwaj_Resume.pdf"
         style={{
           display: 'inline-block',
