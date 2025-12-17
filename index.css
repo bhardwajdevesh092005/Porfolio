@@ -102,6 +102,7 @@ nav {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+  box-shadow:  10px black;
 }
 
 .nav-content {
@@ -241,6 +242,33 @@ nav {
   line-height: 1.1;
   margin-bottom: 1.5rem;
   color: var(--text-primary);
+}
+
+.typewriter {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin-bottom: 1.5rem;
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typewriter-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+  color: var(--accent-color);
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
 }
 
 .hero-subtitle {
@@ -397,6 +425,32 @@ section {
 
 .about-image {
   position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.about-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at bottom right, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+  border-radius: 12px;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeInFilter 1.5s ease-in-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInFilter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .about-image img {
@@ -863,7 +917,7 @@ section {
 /* Footer */
 footer {
   padding: 3rem 0;
-  background: var(--surface);
+  background: var(--background);
   border-top: 1px solid var(--border);
   margin-top: 4rem;
 }

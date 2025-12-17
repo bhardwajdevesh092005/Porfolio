@@ -9,7 +9,6 @@ const projects: Project[] = [
     title: 'Pravah - Audio Enhancement Pipeline',
     description: 'Designed and implemented a pipeline to enhance audio clarity by reducing noise, improving signal fidelity, and optimizing playback quality using signal-processing techniques and automated evaluation.',
     tags: ['Node.js', 'React', 'JavaScript', 'Socket.io', 'WebRTC'],
-    imageUrl: 'https://picsum.photos/800/600?random=1',
     demoUrl: '#',
     repoUrl: 'https://github.com/bhardwajdevesh092005'
   },
@@ -18,7 +17,6 @@ const projects: Project[] = [
     title: 'LIBR - Decentralized Forum',
     description: 'A censor-resilient yet moderated platform using DHTs and blockchain, with fault tolerance via Byzantine consensus. Features modular architecture with partial message immutability for reconfigurability.',
     tags: ['Go', 'Blockchain', 'DHT', 'System Design'],
-    imageUrl: 'https://picsum.photos/800/600?random=2',
     demoUrl: '#',
     repoUrl: 'https://github.com/bhardwajdevesh092005'
   },
@@ -27,7 +25,6 @@ const projects: Project[] = [
     title: 'WhatsApp Chat Bot',
     description: 'Created a WhatsApp auto-reply chatbot with login dashboard and analytics featuring customized replies. Built with Node.js backend and whatsapp-web.js for auto-reply and QR-based login.',
     tags: ['Node.js', 'WhatsApp API', 'JavaScript', 'Analytics'],
-    imageUrl: 'https://picsum.photos/800/600?random=3',
     demoUrl: '#',
     repoUrl: 'https://github.com/bhardwajdevesh092005'
   },
@@ -36,7 +33,6 @@ const projects: Project[] = [
     title: 'Route Optimization - R2G Logistics',
     description: 'Implemented route optimization algorithms (A*, Christofides) to compute shortest paths across 15-20 delivery locations, improving efficiency by 30% and reducing training costs by 70%.',
     tags: ['Java', 'Algorithms', 'Graph Theory', 'Optimization'],
-    imageUrl: 'https://picsum.photos/800/600?random=4',
     demoUrl: '#',
     repoUrl: '#'
   }
@@ -51,13 +47,9 @@ const Projects: React.FC = () => {
         <div className="projects-grid">
           {projects.map((project) => (
             <div key={project.id} className="project-card">
-              <img 
-                src={project.imageUrl} 
-                alt={project.title} 
-                className="project-image"
-              />
-
               <div className="project-content">
+                <h3 className="project-title">{project.title}</h3>
+                
                 <div className="project-tags">
                   {project.tags.map(tag => (
                     <span key={tag} className="project-tag">
@@ -66,15 +58,14 @@ const Projects: React.FC = () => {
                   ))}
                 </div>
                 
-                <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">
                   {project.description}
                 </p>
 
                 <div className="project-links">
-                  <a href={project.demoUrl} className="project-link">
+                  {/* <a href={project.demoUrl} className="project-link">
                     <ExternalLink size={16} /> Live Demo
-                  </a>
+                  </a> */}
                   <a href={project.repoUrl} className="project-link">
                     <Github size={16} /> Source
                   </a>

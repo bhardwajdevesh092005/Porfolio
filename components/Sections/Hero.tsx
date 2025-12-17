@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, FileText, Github, Linkedin, Mail } from 'lucide-react';
 import HeroScene from '../3D/HeroScene';
@@ -7,6 +7,38 @@ import ResumeContent from '../Content/ResumeContent';
 
 const Hero: React.FC = () => {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [typewriterText, setTypewriterText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const fullText = 'Full Stack Developer and System Designer';
+  
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+    
+    const handleTyping = () => {
+      if (!isDeleting) {
+        // Typing forward
+        if (typewriterText.length < fullText.length) {
+          setTypewriterText(fullText.slice(0, typewriterText.length + 1));
+          timeout = setTimeout(handleTyping, 80);
+        } else {
+          // Pause at the end before deleting
+          timeout = setTimeout(() => setIsDeleting(true), 2000);
+        }
+      } else {
+        // Deleting backward
+        if (typewriterText.length > 0) {
+          setTypewriterText(fullText.slice(0, typewriterText.length - 1));
+          timeout = setTimeout(handleTyping, 50);
+        } else {
+          // Pause before restarting
+          timeout = setTimeout(() => setIsDeleting(false), 500);
+        }
+      }
+    };
+
+    timeout = setTimeout(handleTyping, 80);
+    return () => clearTimeout(timeout);
+  }, [typewriterText, isDeleting]);
 
   return (
     <section id="home">
@@ -27,10 +59,13 @@ const Hero: React.FC = () => {
           <h1 className="hero-title">
             Devesh Bhardwaj
             <br />
-            Algorithm & Systems Developer
           </h1>
+          <h3 className="typewriter">
+            {typewriterText}
+            <span className="typewriter-cursor">|</span>
+          </h3>
           <p className="hero-subtitle">
-            Computer Science student at IIT Jodhpur, specializing in algorithm optimization, full-stack development, and scalable systems design
+            Computer Science student at IIT Jodhpur, specializing in full-stack development, scalable systems design and algorithm optimization   
           </p>
 
           <div className="hero-buttons">

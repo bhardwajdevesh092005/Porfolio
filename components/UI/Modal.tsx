@@ -54,7 +54,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
             style={{
               position: 'relative',
               width: '100%',
-              maxWidth: '900px',
+              maxWidth: title === 'Resume' ? '1100px' : '900px',
               maxHeight: '90vh',
               overflowY: 'auto',
               background: 'var(--background)',
