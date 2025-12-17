@@ -10,7 +10,7 @@ const About: React.FC = () => {
         <div className="about-content">
           <div className="about-image">
             <img 
-              src="profile.jpg" 
+              src="/profile.jpg" 
               alt="Devesh Bhardwaj" 
             />
           </div>
