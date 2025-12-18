@@ -10,7 +10,7 @@ const ResumeContent: React.FC = () => {
       gap: '1rem'
     }}>
       <iframe
-        src={`/Resume_Dev.pdf`}
+        src={`Porfolio/Resume_Dev.pdf`}
         style={{
           width: '100%',
           height: '100%',
